@@ -1,4 +1,4 @@
-package csc301.abstractFactoryExample;
+package csc301.abstractFactoryExample.tripAdvisor;
 
 public class TripAdvisor2 implements TripAdvisor {
 
