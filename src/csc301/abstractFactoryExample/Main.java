@@ -1,23 +1,9 @@
 package csc301.abstractFactoryExample;
-
 import java.lang.reflect.InvocationTargetException;
 
-import csc301.abstractFactoryExample.tripAdvisor.TripAdvisor;
 import csc301.abstractFactoryExample.tripAdvisor.TripAdvisorFactory;
 
 public class Main {
-
-	
-	// Notice how the code in this function only depends on the two interfaces:
-	// TripAdvisorFactory and TripAdvisor.
-	public static void run(TripAdvisorFactory factory){
-		TripAdvisor advisor = factory.getInstance();
-		
-		System.out.println("Now I can test the trip advisor ...");
-		double price = advisor.getCheapestPrice("Toronto", "Montreal");
-		System.out.println("A cheapest trip from Toronto to Montreal costs " + price + "$.");
-	}
-	
 
 	
 	/**
@@ -37,7 +23,7 @@ public class Main {
 	
 	public static void main(String[] args){
 		try{
-			run(createFactory(System.getenv("FACTORY_IMPL")));
+			new Application(createFactory(System.getenv("FACTORY_IMPL"))).run();
 		} catch (Exception e){
 			System.out.println("Ooops ... " + e.getMessage());
 		}
