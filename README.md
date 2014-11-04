@@ -6,16 +6,13 @@ We solve our problem in the usual way ... we introduce a middleman (in the form 
  * We create two different implementations - [`TripAdvisorFactoryImpl1.java`](src/csc301/abstractFactoryExample/tripAdvisor/TripAdvisorFactoryImpl1.java) which creates instances of type `TripAdvisor1`, and [`TripAdvisorFactoryImpl2.java`](src/csc301/abstractFactoryExample/tripAdvisor/TripAdvisorFactoryImpl2.java) which creates instances of type `TripAdvisor2`
 
 
-Notice that the `run` method in [`Main.java`](src/csc301/abstractFactoryExample/Main.java) depends only on the `TripAdvisorFactory` and not the various implementation.
+Notice that [`Application.java`](src/csc301/abstractFactoryExample/Application.java) depends only on the `TripAdvisorFactory` and `TripAdvisor`, not any specific implementation.
 
-You may think that we are still cheating: 
- * In the main method of [`Main.java`](src/csc301/abstractFactoryExample/Main.java) we instantiate a `TripAdvisorFactoryImpl1` (which depends on `TripAdvisor1`), so we still depend on specific implementations.
- * This is true, but it's only because we trying to keep this example small:
-   * The `run` method in [`Main.java`](src/csc301/abstractFactoryExample/Main.java) represents the application business logic (i.e. The "interesting stuff").
-   * The `main` method in [`Main.java`](src/csc301/abstractFactoryExample/Main.java) represents the application initialization.
- * Also, notice that, if we delete `TripAdvisorFactoryImpl2` and `TripAdvisor2`, everything else still compiles.
+Our [`Main.java`](src/csc301/abstractFactoryExample/Main.java) has very clear responsibility - Instantiate a factory, pass it to the application, and run it.
 
+This solution is a good example of an implementation of the abstract factory pattern.     
 
-To prove a point, and (hopefully) convince you that we are not cheating, let's see [step 5](https://github.com/csc301-fall2014/AbstractFactoryExample/tree/step5).
+We can also do something cool, and remove the explicit dependency on `TripAdvisorFactoryImpl1` in `Main`.
+Let's see it in [step 5](https://github.com/csc301-fall2014/AbstractFactoryExample/tree/step5).
 
  
