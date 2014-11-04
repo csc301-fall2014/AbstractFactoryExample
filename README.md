@@ -14,7 +14,7 @@ We are showing this solution to prove a point:
    * Our application can use any `TripAdvisorFactory` in order to instantiate `TripAdvisor`s.
    * `TripAdvisorFactoryImpl1` knows how to create `TripAdvisor1` instances.
    * `TripAdvisorFactoryImpl2` knows how to create `TripAdvisor2` instances.
-   * There is a separate part of our application that is in charge of instantiating a `TripAdvisorFactory`.
+   * There is only one component in our code that is responsible for instantiating `TripAdvisorFactory`s.
  * Separating the responsibilities allows us to:
    * Change one part of the application without affecting others.
    * Improve our application incrementally (we can improve one component at a time).
